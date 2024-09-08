@@ -23,5 +23,6 @@ more_movies = [
 ]
 
 more_movies.each do |movie|
-  Movie.create!(movie)
+  # Movie.create!(movie)
+  Movie.where(movie).first_or_create
 end

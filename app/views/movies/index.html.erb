@@ -29,10 +29,18 @@
 <table>
     <thead>
       <tr>
-        <th><%= link_to "Title", :sort => "title" %></th>
-        <th><%= link_to "Rating", :sort => "rating" %></th>
-        <th><%= link_to "Release date", :sort => "release_date" %></th>
-        <th><%= link_to "Description", :sort => "description" %></th>
+        <th>Title <br>
+          <%= link_to "desc", :sort => "title", :sort_direct => "desc" %> |  <%= link_to "asc", :sort => "title", :sort_direct => "asc" %>
+        </th>
+        <th>Rating <br>
+          <%= link_to "desc", :sort => "rating", :sort_direct => "desc" %> |  <%= link_to "asc", :sort => "rating", :sort_direct => "asc" %>
+        </th>
+        <th>Release Date <br>
+          <%= link_to "desc", :sort => "release_date", :sort_direct => "desc" %> |  <%= link_to "asc", :sort => "release_date", :sort_direct => "asc" %>
+        </th>
+        <th>Description <br>
+          <%= link_to "desc", :sort => "description", :sort_direct => "desc" %> |  <%= link_to "asc", :sort => "description", :sort_direct => "asc" %>
+        </th>
         <th>Operations</th>
       </tr>
     </thead>
@@ -47,4 +55,4 @@
     <% end %>
 </table>
 
-<%= link_to "New movie", new_movie_path %>
+<%= link_to "New movie", new_movie_path%>

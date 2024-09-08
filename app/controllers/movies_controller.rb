@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   # GET /movies or /movies.json
   def index
     if params[:sort] == nil
-      @moives = Moives.all
+      @movies = Movie.order("release_date")
       return
     end
     if params[:sort_direct] == nil

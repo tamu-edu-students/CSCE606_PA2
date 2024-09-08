@@ -29,10 +29,10 @@
 <table>
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Rating</th>
-        <th>Release date</th>
-        <th>Description</th>
+        <th><%= link_to "Title", :sort => "title" %></th>
+        <th><%= link_to "Rating", :sort => "rating" %></th>
+        <th><%= link_to "Release date", :sort => "release_date" %></th>
+        <th><%= link_to "Description", :sort => "description" %></th>
         <th>Operations</th>
       </tr>
     </thead>

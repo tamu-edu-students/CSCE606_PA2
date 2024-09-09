@@ -3,12 +3,12 @@ class MoviesController < ApplicationController
 
   # GET /movies or /movies.json
   def index
+    if params[:sort_direct] == nil
+      params[:sort_direct] = "desc"
+    end
     if params[:sort] == nil
       @movies = Movie.order("release_date")
       return
-    end
-    if params[:sort_direct] == nil
-      params[:sort_direct] = "desc"
     end
     @sort_col = params[:sort]
     @sort_direct = params[:sort_direct]

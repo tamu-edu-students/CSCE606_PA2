@@ -1,9 +1,51 @@
-<h1>New movie</h1>
+<style>
+  .page-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
 
-<%= render "form", movie: @movie %>
+  .form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+  }
 
-<br>
+  .actions {
+    text-align: center;
+    margin-top: 20px;
+  }
 
-<div>
-  <%= link_to "Back to movies", movies_path %>
+  .btn {
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+  }
+
+  .btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    border: 1px solid #6c757d;
+  }
+
+  .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+  }
+</style>
+
+<h1 class="page-title">New movie</h1>
+
+<div class="form-container">
+  <%= render "form", movie: @movie %>
+</div>
+
+<div class="actions">
+  <%= link_to "Back to movies", movies_path, class: "btn btn-secondary", :sort => @sort_col, :sort_direct => @sort_direct %>
 </div>

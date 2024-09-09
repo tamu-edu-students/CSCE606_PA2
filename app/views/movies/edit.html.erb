@@ -1,10 +1,82 @@
-<h1>Editing movie</h1>
+<style>
+/* 全局样式 */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+}
 
-<%= render "form", movie: @movie %>
+.page-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-<br>
+.form-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
 
-<div>
-  <%= link_to "Show this movie", @movie %> |
-  <%= link_to "Back to movies", movies_path %>
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 16px;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+  border: 1px solid #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+</style>
+
+<h1 class="page-title">Editing movie</h1>
+
+<div class="form-container">
+  <%= render "form", movie: @movie %>
+</div>
+
+<div class="actions">
+  <%= link_to "Show this movie", @movie, class: "btn btn-primary" %> |
+  <%= link_to "Back to movies", :sort => @sort_col, :sort_direct => @sort_direct, movies_path, class: "btn btn-secondary" %>
 </div>

@@ -22,6 +22,14 @@
     td {
         color: #555;
     }
+
+    .sorted{
+      background-color: #BAE1FF;
+    }
+
+    .unosrted{
+      background-color: #FFFFFF;
+    }
 </style>
 
 <h1>Rotten Potatoes<h1>
@@ -29,27 +37,32 @@
 <table>
     <thead>
       <tr>
-        <th>Title <br>
-          <%= link_to "desc", :sort => "title", :sort_direct => "desc" %> |  <%= link_to "asc", :sort => "title", :sort_direct => "asc" %>
+        <th>Title <%= 
+            @sort_col == 'title' && @sort_direct == 'desc' ? ('⬇️') : (@sort_col == 'title' && @sort_direct == 'asc'? '⬆️' : "")%> 
+          <br>
+          <%= link_to "desc", :sort => "title", :sort_direct => "desc"%> |  <%= link_to "asc", :sort => "title", :sort_direct => "asc"%>
         </th>
-        <th>Rating <br>
+        <th>Rating <%= 
+            @sort_col == 'rating' && @sort_direct == 'desc' ? ('⬇️') : (@sort_col == 'rating' && @sort_direct == 'asc'? '⬆️' : "")%><br>
           <%= link_to "desc", :sort => "rating", :sort_direct => "desc" %> |  <%= link_to "asc", :sort => "rating", :sort_direct => "asc" %>
         </th>
-        <th>Release Date <br>
-          <%= link_to "desc", :sort => "release_date", :sort_direct => "desc" %> |  <%= link_to "asc", :sort => "release_date", :sort_direct => "asc" %>
+        <th>Release Date <%= 
+            @sort_col == 'release_date' && @sort_direct == 'desc' ? ('⬇️') : (@sort_col == 'release_date' && @sort_direct == 'asc'? '⬆️' : "")%><br>
+          <%= link_to "desc", :sort => "release_date", :sort_direct => "desc" %> | <%= link_to "asc", :sort => "release_date", :sort_direct => "asc" %>
         </th>
-        <th>Description <br>
-          <%= link_to "desc", :sort => "description", :sort_direct => "desc" %> |  <%= link_to "asc", :sort => "description", :sort_direct => "asc" %>
+        <th>Description <%= 
+            @sort_col == 'description' && @sort_direct == 'desc' ? ('⬇️') : (@sort_col == 'description' && @sort_direct == 'asc'? '⬆️' : "")%><br>
+          <%= link_to "desc", :sort => "description", :sort_direct => "desc" %> | <%= link_to "asc", :sort => "description", :sort_direct => "asc" %>
         </th>
-        <th>Operations</th>
+        <th>Operations </th>
       </tr>
     </thead>
     <% @movies.each do |movie| %>
       <tr>
-        <td> <%= movie.title %> </td>
-        <td> <%= movie.rating %> </td>
-        <td> <%= movie.release_date %> </td>
-        <td> <%= movie.description %> </td>
+        <td class="<%= @sort_col == 'title' ? 'sorted' : 'unosrted' %>"> <%= movie.title %> </td>
+        <td class="<%= @sort_col == 'rating' ? 'sorted' : 'unosrted' %>"> <%= movie.rating %> </td>
+        <td class="<%= @sort_col == 'release_date' ? 'sorted' : 'unosrted' %>"> <%= movie.release_date %> </td>
+        <td class="<%= @sort_col == 'description' ? 'sorted' : 'unosrted' %>"> <%= movie.description %> </td>
         <td> <%= link_to "CRUD", movie %> </td>
       </tr>
     <% end %>

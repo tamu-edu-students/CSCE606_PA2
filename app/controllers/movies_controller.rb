@@ -10,6 +10,8 @@ class MoviesController < ApplicationController
     if params[:sort_direct] == nil
       params[:sort_direct] = "desc"
     end
+    @sort_col = params[:sort]
+    @sort_direct = params[:sort_direct]
     @movies = Movie.order(params[:sort] + " " + params[:sort_direct])
   end
 
